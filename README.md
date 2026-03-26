@@ -1,13 +1,11 @@
 # Gaard API documentation
 
-The API documentation is based on [OpenAPI 3.0.0](https://swagger.io/).
-
-- API server: [https://vision.gaard.ai/v1](https://vision.gaard.ai/v1)
-- API documentation website [https://docs.gaard.ai](https://docs.gaard.ai)
+- API server: [https://vision.gaard.ai](https://vision.gaard.ai)
+- API documentation website [https://gaard.ai/docs](https://gaard.ai/docs)
 
 ## Work with API
 
-To work with API you need `API_KEY`. Please contact us contact@jalgos.com to have access.
+To work with API you need `API_KEY`. Please contact us contact@gaard.ai to have access.
 
 The classification uses `analyse_id` parameter that should be a unique number for each request. You can use a continuously growing counter.
 
@@ -18,7 +16,7 @@ Classification API is asynchronous. The general flow is to send video to classif
 Clone repository
 
 ```bash
-git clone git@github.com:jalgos/gaard-api-docs.git
+git clone git@github.com:gaard-ai/gaard-api-docs.git
 cd gaard-api-docs
 ```
 
@@ -33,7 +31,7 @@ export API_KEY="YOUR API KEY"
 Usage
 
 ```bash
-bin/post-video [video_path] [analyse_id] [metadata_path]
+bin/post-video [video_path] [metadata_path]
 ```
 
 Examples
@@ -41,8 +39,8 @@ Examples
 ```bash
 bin/post-video
 bin/post-video bin/video.mov
-bin/post-video bin/video.mov 1254448
-bin/post-video bin/video.mov 1254448 bin/metadata.json
+bin/post-video bin/video.mov
+bin/post-video bin/video.mov bin/metadata.json
 ```
 
 ### Get results
@@ -50,42 +48,30 @@ bin/post-video bin/video.mov 1254448 bin/metadata.json
 Usage
 
 ```bash
-bin/get-result analyse_id
+bin/get-result classify_id
 ```
 
 Example
 
 ```bash
-bin/get-result 1254448
+bin/get-result 69c5488f6444fe27532566af
 ```
 
-### Get original video
+### Get Annotated video
 
 Usage
 
 ```bash
-bin/get-original-video filename
+bin/get-annotated-video classify_id
 ```
 
 Example
 
 ```bash
-bin/get-original-video video.mov
+bin/get-annotated-video 69c5488f6444fe27532566af
 ```
 
-### Get Highlighted video
-
-Usage
-
-```bash
-bin/get-highlighted-video filename
-```
-
-Example
-
-```bash
-bin/get-highlighted-video video.mov
-```
+The output will be saved to `out.mp4`.
 
 ## Licenses
 

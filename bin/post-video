@@ -9,7 +9,7 @@
 # > bin/post-video bin/video.mov
 # > bin/post-video bin/video.mov bin/metadata.json
 
-API_SERVER=${API_SERVER:="https://vision.gaard.ai/v1"}
+API_SERVER=${API_SERVER:="https://vision.gaard.ai"}
 VIDEO=${1:-"bin/video.mov"}
 METADATA=${2:-"bin/metadata.json"}
 SYNC=${3:-"true"}
@@ -19,7 +19,7 @@ if [[ -z "${API_KEY}" ]]; then
   exit 1
 fi
 
-ENDPOINT="$API_SERVER/classify?sync=$SYNC"
+ENDPOINT="$API_SERVER/api/classify?sync=$SYNC"
 
 curl -X POST \
 -H "Authorization: Bearer $API_KEY" \
