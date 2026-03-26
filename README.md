@@ -7,8 +7,6 @@
 
 To work with API you need `API_KEY`. Please contact us contact@gaard.ai to have access.
 
-The classification uses `analyse_id` parameter that should be a unique number for each request. You can use a continuously growing counter.
-
 ## Use scripts
 
 Classification API is asynchronous. The general flow is to send video to classification and receive the result by calling `/result` endpoint or using webhook
